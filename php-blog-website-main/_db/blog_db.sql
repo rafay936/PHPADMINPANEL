@@ -1,32 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jul 21, 2023 at 09:41 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `blog_db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
@@ -35,28 +6,16 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `admin`
---
+
 
 INSERT INTO `admin` (`id`, `first_name`, `last_name`, `username`, `password`) VALUES
 (1, 'Elias', 'A', 'admin', '$2y$10$kggeKkIs6rEWf.p/6muJCOepa8zY4DcDU3CBZua8iNc9SBM3MMGym');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `category`
---
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `category` varchar(127) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `category`
---
-
+) 
 INSERT INTO `category` (`id`, `category`) VALUES
 (1, 'Science'),
 (2, 'Technology'),
@@ -67,11 +26,6 @@ INSERT INTO `category` (`id`, `category`) VALUES
 (8, 'Programming'),
 (9, 'Artificial intelligence');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `comment`
---
 
 CREATE TABLE `comment` (
   `comment_id` int(11) NOT NULL,
@@ -81,9 +35,6 @@ CREATE TABLE `comment` (
   `crated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `comment`
---
 
 INSERT INTO `comment` (`comment_id`, `comment`, `user_id`, `post_id`, `crated_at`) VALUES
 (21, 'good', 4, 14, '2023-07-21 19:04:30'),
@@ -93,11 +44,6 @@ INSERT INTO `comment` (`comment_id`, `comment`, `user_id`, `post_id`, `crated_at
 (25, 'thanks', 2, 12, '2023-07-21 19:05:56'),
 (26, 'thanks', 2, 15, '2023-07-21 19:11:38');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `post`
---
 
 CREATE TABLE `post` (
   `post_id` int(11) NOT NULL,
@@ -109,9 +55,6 @@ CREATE TABLE `post` (
   `crated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `post`
---
 
 INSERT INTO `post` (`post_id`, `post_title`, `post_text`, `category`, `publish`, `cover_url`, `crated_at`) VALUES
 (10, 'Future of Technology', '<div><span style=\"color: rgb(48, 48, 48); font-family: Lato, sans-serif; font-size: 18px;\">The digital revolution has already changed how people live, work, and communicate. And it’s only just getting started. But the same technologies that have the potential to help billions of people live happier, healthier, and more productive lives are also creating new challenges for citizens and governments around the world. From election meddling to data breaches and cyberattacks, recent events have shown that technology is changing how we think about privacy, national security, and maybe even democracy itself. In this project, we examine challenges in five key areas that will shape the future of the digital age: justice system, impact on democracy, global security and international conflict, the impact of automations and AI on the jobs marketplace, identity, and privacy.&nbsp;</span><span style=\"font-weight: 600; color: rgb(48, 48, 48); font-family: Lato, sans-serif; font-size: 18px;\">Explore provocative and through-provoking topics on how technology impacts our lives</span><br></div><div><br><br><div class=\"videoEmbed\" style=\"position:relative;height:0;padding-bottom:56.25%\"><iframe src=\"https://www.youtube-nocookie.com/embed/8YmLJ6lSzMk?ecver=2\" width=\"640\" height=\"360\" frameborder=\"0\" style=\"position:absolute;width:100%;height:100%;left:0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe></div><br><br><br></div><div><span style=\"font-weight: 600; color: rgb(48, 48, 48); font-family: Lato, sans-serif; font-size: 18px;\"><br><br></span></div>', 9, 1, 'COVER-64ba9e879b0c83.79174008.jpg', '2023-07-21 18:04:39'),
@@ -123,22 +66,13 @@ INSERT INTO `post` (`post_id`, `post_title`, `post_text`, `category`, `publish`,
 (15, 'Major Types of Programming ', '<div><article style=\"font-family: Roboto, sans-serif; color: rgb(81, 86, 94);\"><h2 style=\"margin-top: 64px; margin-bottom: 32px; max-width: 100%; font-family: Roboto, sans-serif !important; font-size: 24px !important; line-height: 34px !important; color: rgb(39, 44, 55) !important;\">Major Types of Programming Languages&nbsp;</h2><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Procedural Programming Languages&nbsp;</h3><div>A programming paradigm that uses procedures or functions to abbreviate and categorize the code into reusable blocks is a procedural programming language. C, Pascal and FORTRAN are the most in-demand programming languages supporting this paradigm.&nbsp;</div><div>In this programming, the program is divided into functions or procedures. They are primarily insular sub-programs that perform a specific task. These procedures can be called from other program parts, allowing for flexible programming and code reuse. The priority is the systematic execution of a program. Further, it emphasizes the series of instructions and influences data stored in variables.</div><div>These are the best programming languages to learn as they are widely used in the fields like engineering, gaming and finance. Procedural programming can be less flexible though this does not stop it from being one of the most significant programming paradigms taught in high-ranking computer science courses.&nbsp;&nbsp;</div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Functional Programming Languages&nbsp;</h3><div>Unlike procedural languages, functional programming languages are more flexible. It is composed of a series of functions. This programming paradigm stresses the use of model computations and data transformation. Haskell, Clojure, Lisp and Scala are the languages supporting this paradigm.&nbsp;</div><div>Functional programming makes programs easier to reason with and increases their reliability. The functions solely operate on their input arguments. They are less popular, but they have experienced a colossal boom from the educational point of view. They are assigned to variables, passed as arguments to other functions and return results from other functions.&nbsp;</div><div>Functional programming is efficient parallel programming. They have no mutable state. You can program functions and parallelly work as instructions. These codes support nested functions and consist of independent units that run coherently. Hence, this is more efficient.</div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Object-oriented Programming Languages&nbsp;</h3><div>In an object-oriented programming language, objects define the data and the behavior of objects. These objects typically include data attributes representing the object\'s state and method. This language enables users to make a complex system with interconnected objects.</div><div>This language hides implementation components from the outside world through encapsulation. This makes it possible to build large intricate systems without stressing about the internal workings of respective objects. The other benefit that makes this language so in demand is the feature of inheritance. It creates a ranking of classes that share common features while still allowing customization.&nbsp;</div><div>Some popular object-oriented programming languages are Java, Python, C++, and Ruby. All these languages are top programming languages, but they share the principle of being object-oriented.&nbsp;</div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Scripting Languages&nbsp;</h3><div>Simple to learn with easy syntax and dynamic typing, the scripting language is the type of language that is interpreted rather than compiled. The two types of this language are server-side scripting languages and client-side scripting languages. These languages make communication possible with other programming languages.</div><ul style=\"margin-top: 0px; margin-bottom: 1rem; padding-left: 0px; list-style-position: initial; list-style-image: initial; margin-left: 20px; font-family: Roboto, sans-serif !important;\"><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\"><span style=\"font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Python -&nbsp;</span>The easiest programming language used among developers is Python. It is an object-oriented programming language. The language has a high-Level data structure, and built-in libraries, that make it easy to use and suitable for rapid application development. It is easy, decoded and has a dynamic semantic language.&nbsp;</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\"><span style=\"font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Perl -&nbsp;</span>The language is dynamic with innovative features that make it popular and different from what is available on Linux and Windows Server. Websites with high traffic usually use Perl, including IMDB, as it helps in text manipulation tasks.&nbsp;</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\"><span style=\"font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Bash -&nbsp;</span>Bourne -Again, SHell is a scripting language that is the default command interpreter on most Linux/GNU operating systems. This language is easier than most of the other programming languages. Bash makes it easier to create script store documentation for others and provides useful reusable scripts.&nbsp;</li></ul><div><br style=\"font-family: Roboto, sans-serif !important;\"><br style=\"font-family: Roboto, sans-serif !important;\"><br style=\"font-family: Roboto, sans-serif !important;\"></div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Logic Programming Languages</h3><div>As the name suggests, this is computer programming based on formal logic. This programming language program consists of a cluster of logical statements or rules that determine relationships among objects. It allows the system to extrapolate new information.&nbsp;</div><div>Artificial intelligence and expert systems commonly use this language where reasoning and conjecture are required. This language allows a concise and expressive program which is easier to reason about and maintain than programs that return to other paradigms.&nbsp;</div><div>To summarize, logical programming is a secure and flexible approach to solving problems in computer programming. It is suitable for every type of problem. It is a valuable tool for a few applications as well. One of the most popular logical languages is Prolog which consists of a set of facts and rules to describe a problem and reason about it.&nbsp;</div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Imperative Programming&nbsp;</h3><div>In imperative programming, the programmer provides a set of instructions that the computer follows to manipulate the state of the program and the information structure within it. This paradigm describes the steps that a computer needs to take to solve a program rather than defining the mathematical function. C, C++, Java, and Python are some of the imperative programming languages,&nbsp;</div><div>The Imperative is the most popular programming language in software development for system programming and low-level programming tasks, which includes direct level control over hardware resources.</div></article><article style=\"font-family: Roboto, sans-serif; color: rgb(81, 86, 94);\"><h2 style=\"margin-top: 64px; margin-bottom: 32px; max-width: 100%; font-family: Roboto, sans-serif !important; font-size: 24px !important; line-height: 34px !important; color: rgb(39, 44, 55) !important;\">Other Ways to Classify Programming Languages&nbsp;</h2><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Front-end vs. Back-end Languages&nbsp;</h3><div>Front-end languages are called client-side languages, which are used to create virtual and interactive website elements that users can see. The front-end languages include HTML, CSS and JavaScript.&nbsp;</div><div>Backend languages are known as server-side languages. They create logic and functionality behind the scenes of the website, like processing, storing and managing the user\'s account and authentication. Python, Ruby, and Java are some of the backend languages.</div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">High-level vs. Low-level Languages&nbsp;</h3><div>High-level languages are easy to read and write since they are understandable. Developers can write code at a higher level of abstraction without worrying about the underlying hardware or operating system, as it is close to natural languages. They have built-in libraries and frameworks to simplify ordinary programming tasks like managing data structures or executing calculations. Examples of high-level languages are Python, Java or Ruby.&nbsp;</div><div>On the other hand, level languages are much more complex to understand and write. The code written in languages is very efficient and directly manipulates the hardware and memory of the computer. Yet the developer needs to rely on manual efforts and understanding. Assembly language and C are examples of this type of language.&nbsp;&nbsp;&nbsp;</div><h3 style=\"margin-top: 32px; margin-bottom: 24px; font-family: Roboto, sans-serif !important; color: rgb(39, 44, 55) !important; font-size: 18px !important; line-height: 26px !important;\">Interpreted vs. Compiled Languages&nbsp;</h3><div>The interpreter directly executes and reads the interpreted code line by line without compiling it into machine code. It can be executed immediately without requiring separate compilation steps, such as Python, Ruby and JavaScript.</div><div>In contrast, the compiler first translates the compiled languages into machine code. Further converts the human-readable code into a structure that computers can execute. Languages like C, C++, and Java fall into this category.</div></article><article style=\"font-family: Roboto, sans-serif; color: rgb(81, 86, 94);\"><h2 style=\"margin-top: 64px; margin-bottom: 32px; max-width: 100%; font-family: Roboto, sans-serif !important; font-size: 24px !important; line-height: 34px !important; color: rgb(39, 44, 55) !important;\">What Programming Language Should You Learn?&nbsp;&nbsp;</h2><div>With rigorous updates in the tech market, a candidate should be up-to-date with new languages. Though, other factors play a significant role in the decision of what programming languages to learn.&nbsp;</div><ul style=\"margin-top: 0px; margin-bottom: 1rem; padding-left: 0px; list-style-position: initial; list-style-image: initial; margin-left: 20px; font-family: Roboto, sans-serif !important;\"><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Firstly, one needs to understand their goals and what career one wants to pursue after learning the programming language.</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Next, conduct thorough market research and narrow down the field you want to enter.</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\">After that, you need to understand the industry demand and the job portfolio of the desired profession. Learn the skills and languages that are demanded in the chosen field.&nbsp;</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\">You might want to start one of the easiest programming languages and gradually elevate your difficulty level. Python and Ruby are great languages, to begin with.</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Look for simply available material where you can learn quickly. Join communities and network with people at the top level of the field.&nbsp;</li><li aria-level=\"1\" style=\"margin-bottom: 14px; font-family: Roboto, sans-serif !important; line-height: 24px !important;\">Lastly, keep reinventing and learning as the market is constantly changing.</li></ul></article><article style=\"font-family: Roboto, sans-serif; color: rgb(81, 86, 94);\"><h2 style=\"margin-top: 64px; margin-bottom: 32px; max-width: 100%; font-family: Roboto, sans-serif !important; font-size: 24px !important; line-height: 34px !important; color: rgb(39, 44, 55) !important;\">What Are the Best Programming Languages to Learn in 2023?</h2><div>What coding and programming language should i learn? JavaScript and Python, two of the most popular languages in the startup industry, are in high demand. Most startups use Python-based backend frameworks such as Django (Python), Flask (Python), and NodeJS (JavaScript). These languages are also considered to be the best programming languages to learn for beginners.</div><div>Below is a list of the most popular and best programming languages that will be in demand in 2023.</div><div>1. Javascript<br style=\"font-family: Roboto, sans-serif !important;\">2. Python<br style=\"font-family: Roboto, sans-serif !important;\">3. Go<br style=\"font-family: Roboto, sans-serif !important;\">4. Java<br style=\"font-family: Roboto, sans-serif !important;\">5. Kotlin<br style=\"font-family: Roboto, sans-serif !important;\">6. PHP<br style=\"font-family: Roboto, sans-serif !important;\">7. C#<br style=\"font-family: Roboto, sans-serif !important;\">8. Swift<br style=\"font-family: Roboto, sans-serif !important;\">9. R<br style=\"font-family: Roboto, sans-serif !important;\">10. Ruby<br style=\"font-family: Roboto, sans-serif !important;\">11. C and C++<br style=\"font-family: Roboto, sans-serif !important;\">12. Matlab<br style=\"font-family: Roboto, sans-serif !important;\">13. TypeScript<br style=\"font-family: Roboto, sans-serif !important;\">14. Scala<br style=\"font-family: Roboto, sans-serif !important;\">15. SQL<br style=\"font-family: Roboto, sans-serif !important;\">16. HTML<br style=\"font-family: Roboto, sans-serif !important;\">17. CSS<br style=\"font-family: Roboto, sans-serif !important;\">18. NoSQL<br style=\"font-family: Roboto, sans-serif !important;\">19. Rust<br style=\"font-family: Roboto, sans-serif !important;\">20. Perl</div></article></div>', 8, 1, 'COVER-64baa64818c1c1.96344816.jpg', '2023-07-21 18:37:44'),
 (20, 'Hello, World test 1', '<div><h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit.&nbsp;</h2></div><div><span style=\"background-color: blue;\"><font color=\"#ffffff\"><br></font></span></div><div><span style=\"background-color: blue;\"><font color=\"#ffffff\">A similique, eaque incidunt vel officiis, veniam quaerat cupiditate excepturi accusantium maiores porro rerum adipisci aliquam accusamus! Eum voluptate, fuga voluptates harum.</font></span><font color=\"#ff0000\"><br></font></div><div><font color=\"#ff0000\"><br></font></div><div><img src=\"https://images.unsplash.com/photo-1689267305146-155a1459752c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1228&amp;q=80\" align=\"left\"><font color=\"#ff0000\"><br></font></div><div><font color=\"#ff0000\"><br></font></div><div><font color=\"#ff0000\">Lorem, ipsum dolor sit amet consectetur adipisicing elit. A similique, eaque incidunt vel officiis, veniam quaerat cupiditate excepturi accusantium maiores porro rerum adipisci aliquam accusamus! Eum voluptate, fuga voluptates harum.</font><br></div><div><br></div><div><br><br><div class=\"videoEmbed\" style=\"position:relative;height:0;padding-bottom:56.25%\"><iframe src=\"https://www.youtube-nocookie.com/embed/5v1DvTLzMrA?ecver=2\" width=\"640\" height=\"360\" frameborder=\"0\" style=\"position:absolute;width:100%;height:100%;left:0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe></div><br><br>&nbsp; &nbsp;</div><div><ol><li>Lorem, ipsum dolor sit&nbsp;</li><li>amet consectetur adipisicing elit.</li><li>&nbsp;A similique, eaque incidunt vel&nbsp;</li><li>officiis, veniam quaerat cupiditate&nbsp;</li><li>excepturi accusantium maiores porro rerum adipisci aliquam accusamus!</li><li>&nbsp;Eum voluptate, fuga voluptates harum.</li></ol><div><br></div><div><br></div><div><table class=\"table-1\"><tbody><tr><td>asdas</td><td>asda</td></tr><tr><td>asdasd</td><td><a href=\"https://www.youtube.com/channel/UC4fluVc3N9SpAgTItIZ3Mow\" target=\"_blank\">MY YouTube</a></td></tr></tbody></table><br></div></div><div><br></div><div><br></div><div><br></div>', 7, 1, 'COVER-64bab16c6cb184.30984126.png', '2023-07-21 19:25:16');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `post_like`
---
-
+-- -----------------------------------------------------
 CREATE TABLE `post_like` (
   `like_id` int(11) NOT NULL,
   `liked_by` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `liked_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `post_like`
---
 
 INSERT INTO `post_like` (`like_id`, `liked_by`, `post_id`, `liked_at`) VALUES
 (61, 4, 14, '2023-07-21 19:04:18'),
@@ -152,10 +86,6 @@ INSERT INTO `post_like` (`like_id`, `liked_by`, `post_id`, `liked_at`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `users`
---
-
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `fname` varchar(255) NOT NULL,
@@ -163,9 +93,6 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `users`
---
 
 INSERT INTO `users` (`id`, `fname`, `username`, `password`) VALUES
 (2, 'Jhon Doe', 'john', '$2y$10$5KdCaBOhNE6HZOmn39jO4OOyKUI1xC1St51KH8DhtXGX8drct98/q'),
@@ -174,78 +101,45 @@ INSERT INTO `users` (`id`, `fname`, `username`, `password`) VALUES
 (5, 'James Jr ', 'james', '$2y$10$MmbFLq6Qqeb4PnPHF9JK4OSqzBt8.GG3SicdpIYiKo/Xo.6OVu9QO'),
 (6, 'John Jr', 'jr_john', '$2y$10$KpVvp9ixSCn/9FMR3k0tn.0Oul5lf2jGaCGPOgKyyxQTdyMk8xtlG');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `admin`
---
+
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `category`
---
+
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `comment`
---
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`);
 
---
--- Indexes for table `post`
---
+
 ALTER TABLE `post`
   ADD PRIMARY KEY (`post_id`);
 
---
--- Indexes for table `post_like`
---
 ALTER TABLE `post_like`
   ADD PRIMARY KEY (`like_id`);
 
---
--- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `admin`
---
+
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `category`
---
+
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
---
--- AUTO_INCREMENT for table `comment`
---
+
 ALTER TABLE `comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
---
--- AUTO_INCREMENT for table `post`
---
 ALTER TABLE `post`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
---
--- AUTO_INCREMENT for table `post_like`
---
 ALTER TABLE `post_like`
   MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
