@@ -17,9 +17,9 @@ CREATE TABLE `category` (
   `category` varchar(127) NOT NULL
 ) 
 INSERT INTO `category` (`id`, `category`) VALUES
-(1, 'Science'),
-(2, 'Technology'),
-(4, 'Biology'),
+(1, 'Cricket'),
+(2, 'Football'),
+(4, 'American Football'),
 (5, 'Poems'),
 (6, 'Fiction'),
 (7, 'Fantasy'),
